@@ -149,7 +149,6 @@ st.markdown("""
 # ============================================================
 
 characteristic_names = {
-
     "molecules": "інтерес до молекул і білків",
     "cells": "інтерес до клітинних процесів",
     "genetics": "інтерес до генетики",
@@ -166,7 +165,18 @@ characteristic_names = {
     "ecology": "інтерес до екології",
     "reproduction": "інтерес до репродукції",
     "immunity": "інтерес до імунної системи",
-    "development": "інтерес до розвитку організмів і тканин"
+    "development": "інтерес до розвитку організмів і тканин",
+
+    "laboratory_work": "схильність до лабораторної роботи",
+    "field_work": "схильність до польової роботи",
+    "teamwork": "схильність до командної роботи",
+    "independent_work": "схильність до самостійної роботи",
+    "hands_on": "схильність до практичної роботи руками",
+    "analytical": "схильність до аналітичного мислення",
+    "routine_tolerance": "ставлення до повторюваної роботи",
+    "variety": "потреба в різноманітності завдань",
+    "mobility": "схильність до мобільної та виїзної роботи",
+    "data_work": "схильність до роботи з даними"
 }
 
 
@@ -184,32 +194,46 @@ def get_explanation(user_profile, specialization_profile):
         user_value = user_profile.get(characteristic, 0)
         target_percent = target_value * 100
 
+        # Насколько пользователь соответствует характеристике
+        # именно этой специальности.
         difference = user_value - target_percent
 
-        if difference >= 15:
+        # Характеристика важна для специальности
+        # и хорошо выражена у пользователя.
+        if target_percent >= 50 and user_value >= 60:
+
+            match = min(user_value, target_percent)
+
             strengths.append({
                 "characteristic": characteristic,
-                "user_value": user_value
-            })
-
-        elif difference <= -25:
-            weaknesses.append({
-                "characteristic": characteristic,
+                "match": match,
                 "user_value": user_value,
                 "target_value": target_percent
             })
 
+        # Характеристика важна для специальности,
+        # но у пользователя она выражена заметно слабее.
+        elif target_percent >= 50 and difference <= -25:
+
+            weaknesses.append({
+                "characteristic": characteristic,
+                "user_value": user_value,
+                "target_value": target_percent,
+                "difference": difference
+            })
+
+    # Сначала показываем самые сильные совпадения
     strengths.sort(
-        key=lambda x: x["user_value"],
+        key=lambda x: x["match"],
         reverse=True
     )
 
+    # Сначала показываем наиболее заметные недостатки
     weaknesses.sort(
-        key=lambda x: x["user_value"]
+        key=lambda x: x["difference"]
     )
 
     return strengths[:3], weaknesses[:3]
-
 # ============================================================
 # ЗАГОЛОВОК
 # ============================================================
