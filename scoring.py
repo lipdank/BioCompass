@@ -1,56 +1,43 @@
 def calculate_user_profile(questions, answers):
+
     profile = {}
+    weights_sum = {}
 
     for question, answer in zip(questions, answers):
 
-        weights = question["weights"]
+        # 1 -> 0%, 5 -> 100%
+        answer_percent = (answer - 1) / 4 * 100
 
-        for characteristic, weight in weights.items():
-
-            score = answer * weight
+        for characteristic, weight in question["weights"].items():
 
             if characteristic not in profile:
                 profile[characteristic] = 0
+                weights_sum[characteristic] = 0
 
-            profile[characteristic] += score
+            # Учитываем силу влияния вопроса
+            profile[characteristic] += answer_percent * weight
+            weights_sum[characteristic] += abs(weight)
+
+    # Нормализуем каждую характеристику отдельно
+    for characteristic in profile:
+
+        if weights_sum[characteristic] != 0:
+            profile[characteristic] /= weights_sum[characteristic]
+
+        # Ограничиваем диапазон 0–100
+        profile[characteristic] = max(
+            0,
+            min(100, profile[characteristic])
+        )
 
     return profile
 
 
 def normalize_profile(profile, questions):
-    min_profile = {}
-    max_profile = {}
 
-    for question in questions:
-
-        for characteristic, weight in question["weights"].items():
-
-            if characteristic not in min_profile:
-                min_profile[characteristic] = 0
-                max_profile[characteristic] = 0
-
-            possible_min = min(1 * weight, 5 * weight)
-            possible_max = max(1 * weight, 5 * weight)
-
-            min_profile[characteristic] += possible_min
-            max_profile[characteristic] += possible_max
-
-    normalized = {}
-
-    for characteristic, score in profile.items():
-
-        minimum = min_profile[characteristic]
-        maximum = max_profile[characteristic]
-
-        if maximum == minimum:
-            normalized[characteristic] = 50
-        else:
-            normalized[characteristic] = (
-                (score - minimum) /
-                (maximum - minimum)
-            ) * 100
-
-    return normalized
+    # Профиль уже находится в диапазоне 0–100,
+    # поэтому дополнительная нормализация не нужна.
+    return profile
 
 
 def calculate_match(user_profile, specialization_profile):
@@ -62,18 +49,18 @@ def calculate_match(user_profile, specialization_profile):
 
         user_value = user_profile.get(characteristic, 0)
 
-        # Переводим профиль специальности из 0–1 в 0–100
-        target_percent = target_value * 100
+        # Чем важнее характеристика для направления,
+        # тем сильнее она влияет на результат.
+        weight = target_value
 
-        # Насколько выражена нужная характеристика у пользователя
-        score = min(user_value, target_percent)
+        # Считаем не просто наличие характеристики,
+        # а насколько пользователь ей соответствует.
+        score = user_value * weight
 
-        total_score += score * target_value
-        total_weight += target_value
+        total_score += score
+        total_weight += weight
 
     if total_weight == 0:
         return 0
 
-    match = total_score / total_weight
-
-    return match
+    return total_score / total_weight
