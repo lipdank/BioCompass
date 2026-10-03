@@ -6,7 +6,17 @@ profiles = {
         "field": 0.5,
         "laboratory": 0.5,
         "cells": 0.4,
-        "development": 0.5
+        "development": 0.5,
+        "field_work": 0.8,
+        "laboratory_work": 0.4,
+        "hands_on": 0.5,
+        "analytical": 0.4,
+        "teamwork": 0.4,
+        "independent_work": 0.6,
+        "mobility": 0.7,
+        "variety": 0.6,
+        "routine_tolerance": 0.5,
+        "data_work": 0.3
     },
 
     "Біофізика та медична інформатика": {
@@ -15,7 +25,17 @@ profiles = {
         "computer": 0.9,
         "mathematics": 1.0,
         "laboratory": 0.5,
-        "molecules": 0.5
+        "molecules": 0.5,
+        "field_work": 0.1,
+        "laboratory_work": 0.5,
+        "hands_on": 0.4,
+        "analytical": 1.0,
+        "teamwork": 0.6,
+        "independent_work": 0.7,
+        "mobility": 0.2,
+        "variety": 0.7,
+        "routine_tolerance": 0.4,
+        "data_work": 1.0
     },
 
     "Біохімія": {
@@ -23,7 +43,17 @@ profiles = {
         "cells": 0.5,
         "laboratory": 1.0,
         "mathematics": 0.4,
-        "computer": 0.2
+        "computer": 0.2,
+        "field_work": 0.1,
+        "laboratory_work": 1.0,
+        "hands_on": 0.9,
+        "analytical": 0.8,
+        "teamwork": 0.4,
+        "independent_work": 0.8,
+        "mobility": 0.1,
+        "variety": 0.4,
+        "routine_tolerance": 0.8,
+        "data_work": 0.5
     },
 
     "Вірусологія": {
@@ -32,7 +62,17 @@ profiles = {
         "cells": 0.8,
         "laboratory": 0.9,
         "molecules": 0.5,
-        "genetics": 0.6
+        "genetics": 0.6,
+        "field_work": 0.2,
+        "laboratory_work": 1.0,
+        "hands_on": 0.8,
+        "analytical": 0.8,
+        "teamwork": 0.5,
+        "independent_work": 0.7,
+        "mobility": 0.2,
+        "variety": 0.6,
+        "routine_tolerance": 0.7,
+        "data_work": 0.5
     },
 
     "Генетика": {
@@ -41,14 +81,34 @@ profiles = {
         "cells": 0.7,
         "laboratory": 0.7,
         "computer": 0.5,
-        "mathematics": 0.6
+        "mathematics": 0.6,
+        "field_work": 0.1,
+        "laboratory_work": 0.8,
+        "hands_on": 0.6,
+        "analytical": 0.9,
+        "teamwork": 0.5,
+        "independent_work": 0.8,
+        "mobility": 0.1,
+        "variety": 0.6,
+        "routine_tolerance": 0.6,
+        "data_work": 0.8
     },
 
     "Зоологія": {
         "animals": 1.0,
         "field": 0.8,
         "ecology": 0.7,
-        "laboratory": 0.3
+        "laboratory": 0.3,
+        "field_work": 1.0,
+        "laboratory_work": 0.3,
+        "hands_on": 0.6,
+        "analytical": 0.5,
+        "teamwork": 0.5,
+        "independent_work": 0.5,
+        "mobility": 1.0,
+        "variety": 0.9,
+        "routine_tolerance": 0.3,
+        "data_work": 0.4
     },
 
     "Імунологія": {
@@ -56,7 +116,17 @@ profiles = {
         "cells": 0.8,
         "laboratory": 0.9,
         "molecules": 0.6,
-        "human": 0.5
+        "human": 0.5,
+        "field_work": 0.1,
+        "laboratory_work": 1.0,
+        "hands_on": 0.7,
+        "analytical": 0.8,
+        "teamwork": 0.5,
+        "independent_work": 0.7,
+        "mobility": 0.1,
+        "variety": 0.6,
+        "routine_tolerance": 0.7,
+        "data_work": 0.5
     },
 
     "Мікробіологія": {
@@ -64,7 +134,17 @@ profiles = {
         "laboratory": 1.0,
         "cells": 0.6,
         "genetics": 0.5,
-        "molecules": 0.4
+        "molecules": 0.4,
+        "field_work": 0.2,
+        "laboratory_work": 1.0,
+        "hands_on": 0.9,
+        "analytical": 0.7,
+        "teamwork": 0.5,
+        "independent_work": 0.7,
+        "mobility": 0.2,
+        "variety": 0.6,
+        "routine_tolerance": 0.8,
+        "data_work": 0.4
     },
 
     "Молекулярна біологія": {
@@ -73,7 +153,17 @@ profiles = {
         "genetics": 1.0,
         "laboratory": 0.9,
         "computer": 0.4,
-        "mathematics": 0.4
+        "mathematics": 0.4,
+        "field_work": 0.1,
+        "laboratory_work": 1.0,
+        "hands_on": 0.8,
+        "analytical": 0.9,
+        "teamwork": 0.5,
+        "independent_work": 0.8,
+        "mobility": 0.1,
+        "variety": 0.6,
+        "routine_tolerance": 0.7,
+        "data_work": 0.7
     },
 
     "Репродуктивна біологія": {
@@ -82,7 +172,17 @@ profiles = {
         "cells": 0.8,
         "human": 0.7,
         "laboratory": 0.7,
-        "microscopy": 0.6
+        "microscopy": 0.6,
+        "field_work": 0.1,
+        "laboratory_work": 0.8,
+        "hands_on": 0.7,
+        "analytical": 0.7,
+        "teamwork": 0.5,
+        "independent_work": 0.6,
+        "mobility": 0.1,
+        "variety": 0.6,
+        "routine_tolerance": 0.6,
+        "data_work": 0.4
     },
 
     "Фізіологія людини і тварин": {
@@ -90,7 +190,17 @@ profiles = {
         "animals": 0.8,
         "cells": 0.5,
         "laboratory": 0.5,
-        "development": 0.4
+        "development": 0.4,
+        "field_work": 0.2,
+        "laboratory_work": 0.5,
+        "hands_on": 0.5,
+        "analytical": 0.7,
+        "teamwork": 0.6,
+        "independent_work": 0.5,
+        "mobility": 0.3,
+        "variety": 0.7,
+        "routine_tolerance": 0.4,
+        "data_work": 0.5
     },
 
     "Цитологія та гістологія": {
@@ -98,7 +208,17 @@ profiles = {
         "microscopy": 1.0,
         "development": 0.7,
         "laboratory": 0.7,
-        "human": 0.4
+        "human": 0.4,
+        "field_work": 0.1,
+        "laboratory_work": 0.9,
+        "hands_on": 0.8,
+        "analytical": 0.8,
+        "teamwork": 0.4,
+        "independent_work": 0.8,
+        "mobility": 0.1,
+        "variety": 0.4,
+        "routine_tolerance": 0.8,
+        "data_work": 0.4
     },
 
     "Біоінформатика": {
@@ -107,6 +227,16 @@ profiles = {
         "mathematics": 1.0,
         "molecules": 0.5,
         "cells": 0.3,
-        "laboratory": 0.1
+        "laboratory": 0.1,
+        "field_work": 0.0,
+        "laboratory_work": 0.1,
+        "hands_on": 0.1,
+        "analytical": 1.0,
+        "teamwork": 0.4,
+        "independent_work": 0.9,
+        "mobility": 0.1,
+        "variety": 0.6,
+        "routine_tolerance": 0.6,
+        "data_work": 1.0
     }
 }
